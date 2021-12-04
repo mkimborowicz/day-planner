@@ -1,38 +1,48 @@
-var schedule = $(".container");
-var currentDay = $("#currentDay");
-var index = 0;
-var today = moment();
-var currentTime = today.format("hh:mm a");
-currentDay.text(today.format("dddd, MMMM Do YYYY"));
+// sets current date
+$("#currentDay").text(moment().format("dddd, MMM Do YYYY"));
 
-var hours = [
-  "9 AM",
-  "10 AM",
-  "11 AM",
-  "12 PM",
-  "1 PM",
-  "2 PM",
-  "3 PM",
-  "4 PM",
-  "5 PM",
-];
+// creates click function for each button
+// takes value from sibling and saves under value to local storage
+// takes attribute id from parent and saves under key to local storage
+$(".saveBtn").on("click", function () {
+  var value = $(this).siblings(".description").val();
+  var key = $(this).parent().attr("id");
 
-for (i = 9; i < 18; i++, index++) {
-  $("#hour-" + [i]).append("<p></p>");
-  $("#hour-" + [i]).children("p").text(hours[index]);
-  $("#hour-" + [i]).append("<textarea></textarea>")
-  $("#hour-" + [i]).append("<button>save</button>");
+  localStorage.setItem(key, value);
+});
 
-  var toDoItem = localStorage.getItem("hour-" + [index]);
-  var textArea = $("textarea");
-  textArea.text(toDoItem);
-  
-  schedule.on("click", "button",function(event){
-    localStorage.setItem("hour-" + [index], textArea.val())
+function hourFormat() {
+// pulling current hour using moment
+  var currentHour = moment().hours();
+
+  //creates loop for each element with class "time-block"
+  $(".time-block").each(function () {
+  // converts each element id into a number
+    var rowHour = parseInt($(this).attr("id"));
+    
+//compares current hour to schedule hours and adds class depending on if it is past, present or future
+    if (currentHour > rowHour) {
+      $(this).addClass("past");
+    } else if(currentHour === rowHour){
+      $(this).removeClass("past");
+      $(this).addClass("present");
+    } else {
+      $(this).removeClass("past");
+      $(this).removeClass("present");
+      $(this).addClass("future");
+    }
   });
-
 }
 
-schedule.children("div").children("button").attr("class", "saveBtn");
-schedule.children().attr("class", "row");
-schedule.children("div").children("p").attr("class", "hour");
+
+hourFormat();
+
+//grabs items from local storage and displays them in the correct time slot
+$("#9 .description").text(localStorage.getItem("9"));
+$("#9 .description").text(localStorage.getItem("9"));
+$("#9 .description").text(localStorage.getItem("9"));
+$("#9 .description").text(localStorage.getItem("9"));
+$("#9 .description").text(localStorage.getItem("9"));
+$("#9 .description").text(localStorage.getItem("9"));
+$("#9 .description").text(localStorage.getItem("9"));
+$("#9 .description").text(localStorage.getItem("9"));
