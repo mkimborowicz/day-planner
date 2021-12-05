@@ -1,5 +1,5 @@
 // sets current date
-$("#currentDay").text(moment().format("dddd, MMM Do YYYY"));
+$("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));
 
 // creates click function for each button
 // takes value from sibling and saves under value to local storage
@@ -34,15 +34,15 @@ function hourFormat() {
   });
 }
 
-
 hourFormat();
 
 //grabs items from local storage and displays them in the correct time slot
 $("#9 .description").text(localStorage.getItem("9"));
-$("#9 .description").text(localStorage.getItem("9"));
-$("#9 .description").text(localStorage.getItem("9"));
-$("#9 .description").text(localStorage.getItem("9"));
-$("#9 .description").text(localStorage.getItem("9"));
-$("#9 .description").text(localStorage.getItem("9"));
-$("#9 .description").text(localStorage.getItem("9"));
-$("#9 .description").text(localStorage.getItem("9"));
+$("#10 .description").text(localStorage.getItem("10"));
+$("#11 .description").text(localStorage.getItem("11"));
+$("#12 .description").text(localStorage.getItem("12"));
+$("#13 .description").text(localStorage.getItem("13"));
+$("#14 .description").text(localStorage.getItem("14"));
+$("#15 .description").text(localStorage.getItem("15"));
+$("#16 .description").text(localStorage.getItem("16"));
+$("#17 .description").text(localStorage.getItem("17"));
