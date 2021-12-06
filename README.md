@@ -8,7 +8,7 @@ The schedule is also color coded so you will see past hours in light grey, curre
 
 **Link to Webpage**
 
-https://mkimborowicz.github.io/day-planner/
+https://mkimborowicz.github.io/seize-the-day-planner/
 
 **Screenshot of Webpage**
 
